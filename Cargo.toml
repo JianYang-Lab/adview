@@ -1,0 +1,11 @@
+[package]
+name = "adview"
+version = "0.1.0"
+edition = "2021"
+authors = ["wenjiewei<weiwenjie@westlake.edu.cn>"]
+
+[dependencies]
+anyhow = "1.0.97"
+clap = { version = "4.5.31", features = ["derive"] }
+hdf5 = { package = "hdf5-metno", version = "0.10.0" }
+csv = "1.1"
