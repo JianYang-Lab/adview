@@ -8,4 +8,3 @@ authors = ["wenjiewei<weiwenjie@westlake.edu.cn>"]
 anyhow = "1.0.97"
 clap = { version = "4.5.31", features = ["derive"] }
 hdf5 = { package = "hdf5-metno", version = "0.10.0" }
-csv = "1.1"
