@@ -50,13 +50,13 @@ Authors: wenjiewei<weiwenjie@westlake.edu.cn>
 Usage: adview <COMMAND>
 
 Commands:
-  obs-head    Show first n obs [aliases: oh]
-  obs-all     Show all obs [aliases: oa]
-  var-head    Show first n var [aliases: vh]
-  var-all     Show all var [aliases: va]
-  shape       Show shapes of obs and var [aliases: s]
-  export-obs  Export obs data to CSV file [aliases: e]
-  help        Print this message or the help of the given subcommand(s)
+  obs-head  Show first n obs [aliases: oh]
+  obs-all   Show all obs [aliases: oa]
+  var-head  Show first n var [aliases: vh]
+  var-all   Show all var [aliases: va]
+  shape     Show shapes of obs and var [aliases: s]
+  field     Show fields in obs and var [aliases: f]
+  help      Print this message or the help of the given subcommand(s)
 
 Options:
   -h, --help     Print help
@@ -67,25 +67,40 @@ Options:
 
 ```bash
 ❯ adview oh -n 5 path/to/adata.h5ad
-1: AAACCCAAGACTTCGT
-2: AAACCCAAGCCTTTGA
-3: AAACCCAAGTATGAAC
-4: AAACCCAAGTCCGTCG
-5: AAACCCAAGTGCAACG
+
+batch   _index  gene_count      umi_count
+126     AAACCCAAGACTTCGT        1       1
+126     AAACCCAAGCCTTTGA        3       3
+128     AAACCCAAGTATGAAC        1       1
+128     AAACCCAAGTCCGTCG        1       1
+128     AAACCCAAGTGCAACG        1       1
 
 ❯ adview vh -n 5 path/to/adata.h5ad
-1: ENSG00000243485
-2: ENSG00000237613
-3: ENSG00000186092
-4: ENSG00000238009
-5: ENSG00000239945
+
+_index  feature_types   gene_symbols
+ENSG00000243485 Gene Expression MIR1302-2HG
+ENSG00000237613 Gene Expression FAM138A
+ENSG00000186092 Gene Expression OR4F5
+ENSG00000238009 Gene Expression AL627309.1
+ENSG00000239945 Gene Expression AL627309.3
 
 ❯ adview s path/to/adata.h5ad
 
 obs shape: 15235
 var shape: 36601
 
-❯ adview e path/to/adata.h5ad|less -S
+❯ adview f path/to/adata.h5ad
+
+obs fields:
+        batch (categorical)
+        _index (string-array)
+        gene_count (array)
+        umi_count (array)
+
+var fields:
+        _index (string-array)
+        feature_types (categorical)
+        gene_symbols (categorical)
 ```
 
 ### Contribution
